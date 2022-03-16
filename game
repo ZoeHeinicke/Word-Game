@@ -1,1 +1,51 @@
-//code
+//made with codehs java
+
+public class MyProgram extends ConsoleProgram
+{
+//* mean letter is NOT in the word
+//+ means letter IS in word but wrong spot
+
+public void run()
+{
+    String guess = readLine("Enter a 5 chracter word and try to guess the word!");
+    boolean win = false;
+    int count = 0;
+    String answer = "storm";
+    String x = getHint(guess,answer,win,count);
+    count++;
+    System.out.print(x);
+    if(win==true)
+    {
+        System.out.print(" You're correct! Good Job!");
+        System.out.print("it took you " + count + " tries");
+    }
+}
+public String getHint(String guess,String answer,boolean win, int count)
+{
+    String hint = "";
+    if(guess.length()!=5)
+    {
+        return "Your guess has to be five charcters!";
+    }
+    if(guess==answer)
+    {
+        win = true;
+        return guess;
+    }
+    for(int i=0;i<guess.length(); i++)
+    {
+        if(guess.charAt(i)==answer.charAt(i))
+        {
+            hint+=guess.charAt(i);
+        }
+        else if(guess.indexOf(answer.charAt(i))==-1)
+        {
+            hint+='*';
+        }
+        else if(guess.indexOf(answer.charAt(i))!=-1)
+        {
+            hint+='+';
+        }
+    }
+    return(hint);
+}
