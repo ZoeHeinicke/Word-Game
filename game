@@ -1,5 +1,4 @@
 //made with codehs java
-
 public class MyProgram extends ConsoleProgram
 {
 //* mean letter is NOT in the word
